@@ -38,8 +38,6 @@ $(document).ready(function(){
 			var content = $('#editor-html code').text();
 			var target = $('iframe#target');
 			target.attr('src','data:text/html,'+ content);
-			$('[href*="prism.css"]').attr('href','styles/prism.css');
-			$('[src*="prism.js"]').attr('src','scripts/prism.js');
 		}
 
 
@@ -60,9 +58,21 @@ $(document).ready(function(){
 
 
 	}
+
+
+	function updateHighlight(){
+
+		Prism.highlightAll();
+	}
 	
+	$('#editor-html').bind('keypress', function(e) {
+		if(e.keyCode==13){
+		 updateHighlight();
+		}
+	});
 
 	function deploy(){
+
 		setup();
 		updateHtml();
 	}
