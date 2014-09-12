@@ -35,17 +35,29 @@ $(document).ready(function(){
 	function updateHtml(){
 
 		function update(){
-			var content = $('#editor-html').text();
+			var content = $('#editor-html code').text();
 			var target = $('iframe#target');
-			target.attr('src','data:text/html,'+ content)
+			target.attr('src','data:text/html,'+ content);
+			$('[href*="prism.css"]').attr('href','styles/prism.css');
+			$('[src*="prism.js"]').attr('src','scripts/prism.js');
 		}
+
 
 		$('#editor-html').keypress(function(){
 			update();
 		})
 		$('#editor-html').keyup(function(){
 			update();
-		})
+		});
+
+				function refreshCPane(){
+			var contentPane = $('#editor-html code').html();
+			$('#editor-html').empty().append('<code class="prism-markup">'+ contentPane +'</code>')
+
+		}
+
+
+
 
 	}
 	
