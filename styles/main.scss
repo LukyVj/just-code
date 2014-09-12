@@ -1,0 +1,25 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+
+
+/* Space out content a bit */
+html{
+	float: left;
+    width: 100%;
+    height: 100%;
+}
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+#editor-html{
+	border-bottom: 4px solid #2FD6BC;
+}
