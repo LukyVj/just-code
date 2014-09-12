@@ -38,6 +38,7 @@ $(document).ready(function(){
 			var content = $('#editor-html code').text();
 			var target = $('iframe#target');
 			target.attr('src','data:text/html,'+ content);
+			$('.open-page').attr('href', 'data:text/html,'+ content);
 		}
 
 
