@@ -60,22 +60,34 @@ $(document).ready(function(){
 
 	}
 
-
-	function updateHighlight(){
-
-		Prism.highlightAll();
+	function updateLink(){
+		var content = $('#editor-html code').text();
+		$('.open-page').attr('href', 'data:text/html,'+ content);
 	}
-	
-	$('#editor-html').bind('keypress', function(e) {
-		if(e.keyCode==13){
-		 updateHighlight();
+
+	function highlightFix(){
+		
+		function updateHighlight(){
+			Prism.highlightAll();
 		}
-	});
+
+		$('#editor-html').bind('keypress', function(e) {
+			if(e.keyCode==13){
+				updateHighlight();
+			}
+		});
+
+	}
+
 
 	function deploy(){
-
-		setup();
+		setup();		
 		updateHtml();
+		highlightFix();
+
+		setTimeout(function(){
+			updateLink()
+		},50)
 	}
 
 	deploy();
